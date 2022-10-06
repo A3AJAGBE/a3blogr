@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 from flask import Flask
+from . import db
 
 load_dotenv()
 
@@ -31,4 +32,7 @@ def create_app(test_config=None):
     def hello():
         return "Wow, hello folks!"
 
+    db.init_app(app)
+
     return app
+
